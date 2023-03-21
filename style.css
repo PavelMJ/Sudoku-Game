@@ -1,0 +1,695 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,100;0,300;0,400;1,100;1,200;1,300;1,400&family=Sono:wght@200;300;400;500;600;700;800&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Sofia Sans;
+	background-image: linear-gradient(90deg, #3393bd, #1e2764, #710855);
+	width: 100%;
+	height: 100%;
+
+}
+
+
+/* conteiner  of all elemements and block*/
+.container {
+	position: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/* sign in block  */
+
+#signIn {
+	position: absolute;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(223, 225, 234);
+	width: 400px;
+	height: 420px;
+	border-radius: 10px;
+
+}
+
+.inpt {
+
+	position: relative;
+	background-color: #f2e0f8;
+	display: block;
+	width: 280px;
+	height: 38px;
+	font-size: 22px;
+	border: none;
+	padding: 5px;
+	outline: none;
+	border-radius: 5px;
+	bottom: 25px;
+	transition: all 0.2s ease-in-out;
+	box-shadow: 0.5px 0.7px 5px #e89ee4;
+	top: 30px;
+	outline: none;
+}
+
+.inpt:focus {
+	box-shadow: 0.5px 1px 4px #3e3d3d;
+	outline: none;
+	background-color: #f7f0ff;
+}
+
+
+
+
+h1 {
+	position: absolute;
+	text-align: center;
+	color: rgb(68, 68, 68);
+	font-size: 60px;
+	bottom: 30px;
+	bottom: 280px;
+}
+
+#but {
+	color: #3e3d3d;
+	font-size: 20px;
+	position: absolute;
+	background-color: #54bde6;
+	border-radius: 5px;
+	letter-spacing: 2px;
+	font-weight: 500;
+	width: 150px;
+	height: 40px;
+	border: none;
+	bottom: 78px;
+	transition: all 0.1s ease-in;
+
+
+
+}
+
+#but:hover {
+	font-size: 19px;
+	box-shadow: 2px 2px 2px #823457;
+	color: white;
+	background-color: #ea5095;
+
+}
+
+#but:active {
+	box-shadow: none;
+	transform: translateY(2px);
+
+
+}
+
+#usernameErr {
+	position: relative;
+	font-size: 16px;
+	display: block;
+	color: rgb(201, 0, 0);
+	top: 30px;
+}
+
+#passwordErr {
+	position: relative;
+	font-size: 16px;
+	display: block;
+	color: rgb(201, 0, 0);
+	top: 30px;
+}
+
+#signUp {
+	position: relative;
+	text-decoration: none;
+	color: rgb(2, 14, 25);
+	font-size: 20px;
+	top: 80px;
+
+}
+
+a {
+	text-decoration: none;
+	font-weight: 600;
+	color: rgb(7, 30, 50);
+}
+
+
+
+
+/* level chosing block with buttons and howers */
+
+.levels {
+	position: absolute;
+	display: none;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(178, 213, 243);
+	border-radius: 10px;
+	width: 600px;
+	height: 400px;
+	border: none
+}
+
+.gameOpt {
+	width: 80%;
+	height: 75%;
+	display: grid;
+	grid-gap: 9px;
+	grid-template-areas:
+		"easy hard very-hard"
+		"start-game start-game start-game";
+	margin-top: 10px;
+}
+
+.start-game {
+	grid-area: start-game;
+	width: 99%;
+	height: 60%;
+}
+
+.very-hard {
+	grid-area: very-hard;
+	width: 97%;
+}
+
+
+.btn {
+	color: rgb(227, 206, 182);
+	border: none;
+	background-color: rgb(50, 44, 66);
+	font-size: 1.5rem;
+	border-radius: 8px;
+	box-shadow: 1px 0px 4px rgb(50, 49, 49);
+	transition: color 0.3s ease-out, letter-spacing 0.3s ease, border 50ms, font-size 0.3s ease;
+
+
+}
+
+.hale {
+
+	margin: 40px 0 0 0;
+}
+
+.easy {
+	letter-spacing: 3px;
+}
+
+.hard {
+	letter-spacing: 3px;
+}
+
+.btn:hover {
+	color: rgb(32, 216, 249);
+	letter-spacing: 6px;
+	cursor: pointer;
+}
+
+.hard:hover {
+	font-size: 2rem;
+}
+
+.easy:hover {
+	color: rgb(72, 220, 72);
+	letter-spacing: 5px;
+}
+
+.very-hard:hover {
+	color: #fa6072;
+}
+
+h2 {
+	margin: 4px;
+	font-size: 5rem;
+}
+
+p {
+	font-size: 32px;
+	letter-spacing: 4px;
+}
+
+
+
+.select-btn {
+	border: solid 3px rgb(243, 98, 62);
+	box-shadow: 2px 0 10px rgb(243, 98, 62);
+
+}
+.block{
+	position: absolute;
+	display: none;
+	width: 75%;
+	height: 100%;
+	font-size: 50px;
+	margin: 0 0 0 84px;
+	z-index: 12;
+
+}
+
+
+/* main game block  */
+.sudoku {
+	user-select: none;
+	opacity: 100%;
+	filter: blur(0);
+	display: none;
+	width: 700px;
+	height: 700px;
+	grid-template-rows: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	/* border: solid 2px white; */
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	transition: all 0.1s ease;
+
+
+}
+
+
+/* game grid the parent of all cells */
+.gameGrid {
+	display: grid;
+	position: absolute;
+	width: 520px;
+	height: 520px;
+	top: 0;
+	right: 0;
+	bottom: 150px;
+	left: 0;
+	background-color: #4f4f4f;
+	margin: auto;
+	outline: solid 4px rgb(26, 26, 26);
+	grid-gap: .5px;
+}
+
+.rows {
+	display: grid;
+	width: 520px;
+	grid-template-columns: repeat(9, 1fr);
+	margin: 0;
+	padding: 0;
+	grid-gap: .5px;
+}
+
+.cell {
+	text-align: center;
+	font-size: 2rem;
+	background-color: #b9bbb8;
+	width: 97%;
+	height: 97%;
+	border: solid 1px rgb(32, 31, 31);
+	transition-delay: 30ms;
+	transition: all .1s ease-in-out;
+	margin: 0;
+}
+
+.cell:hover {
+	transform: translateY(-2px);
+	z-index: 9;
+
+	background-color: #e0f9ff;
+}
+
+/* button set contein all number and optional buttons exept sound icon */
+
+.buttons-set {
+	position: absolute;
+	width: 80%;
+	height: 12%;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 1px;
+
+
+	grid-template-areas:
+		"newGame resetGame b1 b2 b3 finish"
+		'newGame resetGame b4 b5 b6 finish'
+		'newGame resetGame b7 b8 b9 finish'
+	;
+	margin: auto;
+	top: 490px;
+	bottom: 0;
+	right: 0px;
+	left: 5px;
+}
+
+
+
+.grid-border {
+	width: 44px;
+	height: 44px;
+	border: solid 4px rgb(243, 130, 81);
+}
+
+
+.button {
+	border: #54bde6 solid 1px;
+	position: static;
+	text-align: center;
+	font-size: 20px;
+	background-color: #252c50;
+	color: aliceblue;
+	margin: 2px 0px 0 5px;
+	width: 70px;
+	height: 40px;
+	border-radius: 3px;
+	transition: all 0.1s ease;
+
+
+}
+
+.button:hover {
+	transform: translateY(-2px);
+
+	background-color: rgb(56, 144, 246);
+	/* height: 3rem; */
+	font-size: 25px;
+	bottom: 3px;
+	left: 3px;
+	border: none;
+	box-shadow: 3px 3px 2px rgb(4, 99, 162);
+	cursor: pointer;
+
+}
+
+.button:active {
+	font-size: 23px;
+	box-shadow: none;
+
+
+}
+
+.resetGame {
+	color: #ebf8e1;
+	grid-area: resetGame;
+	width: 80px;
+	height: 100%;
+	max-height: 155px;
+	/* margin: 0 0px 0 0; */
+	font-size: 25px;
+	background-color: #a93d9e;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	border: 0;
+	fill: rgb(225, 217, 217);
+
+
+}
+
+
+
+.resetGame:hover {
+	transform: translateY(-2px);
+	background-color: #eee29c;
+	text-shadow: 1px 0 8px rgb(192, 111, 229);
+	color: #4f4f4f;
+	fill: dimgray;
+	box-shadow: 4px 4px 6px black;
+
+}
+
+.resetGame:active {
+	transform: translateY(2px);
+	box-shadow: none;
+
+
+}
+
+.newGame {
+	color: #ebf8e1;
+	grid-area: newGame;
+	width: 90%;
+	height: 100%;
+	max-height: 155px;
+	margin: 0 3px 0 3px;
+	font-size: 20px;
+	background-color: #ef7c30;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+	border: none;
+
+}
+
+
+
+.newGame:hover {
+	transform: translateY(-2px);
+	background-color: #efd185;
+	text-shadow: 1px 0 8px rgb(247, 192, 217);
+	color: #4f4f4f;
+	box-shadow: 4px 4px 6px black;
+
+}
+
+.newGame:active {
+	transform: translateY(2px);
+	box-shadow: none;
+}
+
+
+
+.finish {
+	color: #ebf8e1;
+	grid-area: finish;
+	width: 90px;
+	height: 100%;
+	margin: 5px;
+	border: none;
+	max-height: 154px;
+	font-size: 21px;
+	background-color: #7942f1;
+	border-radius: 4px;
+	transition-delay: 80ms;
+	transition: all 0.2s ease;
+
+}
+
+.finish:hover {
+	transform: translateY(-2px);
+	color: #4f4f4f;
+	background-color: #f8da9d;
+	text-shadow: 1px 0 8px rgb(247, 192, 217);
+	box-shadow: 4px 4px 6px black;
+}
+
+.finish:active {
+	transform: translateY(2px);
+	box-shadow: none;
+}
+
+
+/* cell marker border */
+.cell-border {
+	height: 97%;
+	width: 97%;
+	background-color: #e0f9ff;
+	outline: solid 4px rgb(224, 84, 243);
+	z-index: 10;
+}
+
+
+ /* border lines for deviding 3x3 zones */
+.border {
+	background-color: rgb(50, 44, 66);
+}
+
+.horizontal {
+	width: 100%;
+	height: 1%;
+
+}
+
+.vertical {
+	width: 1%;
+	height: 100%;
+}
+
+.lin1 {
+	position: absolute;
+	left: 170px;
+}
+
+.lin2 {
+	position: absolute;
+	top: 170px;
+}
+
+.lin3 {
+	position: absolute;
+	top: 345px;
+}
+
+.lin4 {
+	position: absolute;
+	left: 343px;
+}
+
+
+.fa-sharp {
+	font-size: 35px;
+}
+
+
+
+/* game finishig massages  */
+
+.winBaner {
+	text-align: center;
+	display: none;
+	/*block*/
+	position: absolute;
+	width: 100%;
+	height: 70px;
+	background-color: rgb(39, 230, 90);
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 50px;
+	text-shadow: 1px 2px 3px #2f3131;
+	transition: all 0.2s ease-out;
+	z-index: 12;
+
+}
+
+/* final options */
+.finOpt {
+	width: 150px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #2f3131;
+	font-size: 18px;
+	background-color: #3170f9;
+	color: #ffffff;
+	text-shadow: 0.2px 0.2px 1px #2f3131;
+	transition: all 0.1s ease-out;
+
+
+}
+
+.finOpt:hover {
+	color: #3e3d3d;
+	background-color: #f2dfac;
+}
+
+.finOpt:active {
+	transform: translateY(2px);
+
+}
+
+
+
+
+.loseBaner {
+	text-align: center;
+	display: none;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 70px;
+	background-color: rgb(220, 20, 87);
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 50px;
+	text-shadow: 1px 2px 3px #2f3131;
+	transition: all 0.2s ease-out;
+	z-index: 12;
+
+}
+
+
+.reset:hover {
+	fill: #ebf8e1;
+}
+
+
+ /* time result of curent game */
+.timeRes { 
+	color: white;
+	font-size: 40px;
+	margin: 20px 0 0 0;
+}
+
+
+/* music toggle icon to start and stop music playing */
+.musicToggle {
+	display: block;
+	height: 40px;
+	width: 40px;
+	z-index: 9;
+	margin:500px 0 0 30px;
+}
+
+.volume {
+	position: relative;
+	display: none;
+	height: 100%;
+	width: 100%;
+	transition: all 0.1s ease;
+}
+
+.mute {
+	position: relative;
+	display: none;
+	height: 100%;
+	width: 100%;
+	transition: all 0.1s ease;
+
+}
+
+.mute:hover {
+	text-shadow: 1px 1px 3px #252c50;
+	transform: translateY(2px);
+}
+
+.mute:active {
+	transform: translateY(4px);
+}
+
+
+.volume:hover {
+	text-shadow: 1px 1px 3px #252c50;
+	transform: translateY(2px);
+}
+
+.volume:active {
+	transform: translateY(4px);
+}
+
+
+.musicToggle:hover {
+	cursor: pointer;
+
+}
+
+
+/*timer element*/
+.time {
+	width: 120px;
+	height: 100px;
+	display: block;
+	color: white;
+	font-size: 300%;
+	z-index: 11;
+	margin: 0 700px 60px 0px;
+
+
+}
+
+.playTime {
+	font-size: 55%;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Sudoku Game</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+		integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<body>
+<!-- conteiner contans all elements of game on this one page exept sign up page-->
+	<div class="container">
+<!--sign in block with username and password inputs and option to get in to sign up page-->
+		<div id="signIn">  
+			<h1>Sudoku</h1>
+			<input id="usernameInpt" class="inpt" type="text" placeholder="Username">
+			<p id="usernameErr"></p>
+			<input id="passwordInpt" class="inpt" type="password" placeholder="Password">
+			<p id="passwordErr"></p>
+			<br>
+			<button onclick="passwordValid()" id="but">Enter</button>
+			<div id="signUp">Don't have account? <a href="./signUp.html">Sign up</a></div>
+		</div>
+
+<!--end game massages of win and lose depends of resol-->
+		<div class="winBaner">Awesome! Good job!
+			<div class="timeRes winTime">your time is </div>
+			<button class="finOpt" onclick="newGame()">New Game</button>
+			<button class="finOpt" onclick="reSet()">Reset</button>
+		</div>
+		<div class="loseBaner">Sorry! It's wrong solution!
+			<br>
+		<!--final options new game, reset and also ability to resume for mistakes fixing-->
+			<button class="finOpt" onclick="newGame()">New Game</button>
+			<button class="finOpt" onclick="reSet()">Reset Game</button>
+			<button class="finOpt" onclick="resume()">Resume to Fix</button>
+
+		</div>
+<!-- after user validation entering in to choise dificult level block-->
+		<div class="levels">
+			<h2 class="hale">Hi </h2>
+			<p>Choose dificult level</p>
+			<div class="gameOpt">
+				<button class="btn difs easy" onclick="easy()">Easy</button><!--every button launchin her own function-->
+				<button class="btn difs hard" onclick="hard()">Hard</button>
+				<button class="btn difs very-hard" onclick="veryHard()">Very Hard</button>
+			</div>
+		</div>
+		<div class="musicToggle" onclick="musicSwitsch()"> <!--this icon have ability to turn of and on music playig-->
+			<img class="volume" src="./img/volume_icon.svg" alt="">
+			<img class="mute" src="./img/mute_icon.svg" alt="">
+		</div>
+
+<!-- The main blockgame play that contain game grid 9x9, button set with number buttons and optional buttons. 
+also timer start runing -->
+		<div class="sudoku">
+			<div class="block"></div> <!--invisible element seving to disable game zone after finish -->
+			<div class="time"> <!--timer element-->
+				<div class="playTime">Play Time</div>
+				<div class="clock">00:00</div>
+			</div>
+			<!-- game grid contains 9 rows in js code we generate 9 cell for each one -->
+			<div class="gameGrid">
+				<div class="vertical border lin1"></div><!-- this 4 elements just border lines for 3x3 zones-->
+				<div class="horizontal border lin2"></div>
+				<div class="horizontal border lin3"></div>
+				<div class="vertical border lin4"></div>
+				<div class="rows r1"></div> <!-- 9 rows-->
+				<div class="rows r2"></div>
+				<div class="rows r3"></div>
+				<div class="rows r4"></div>
+				<div class="rows r5"></div>
+				<div class="rows r6"></div>
+				<div class="rows r7"></div>
+				<div class="rows r8"></div>
+				<div class="rows r9"></div>
+			</div>
+<!-- button set with all buttons-->
+			<div class="buttons-set">
+				<button class="button b1" value="1">1</button>
+				<button class="button b2" value="2">2</button>
+				<button class="button b3" value="3">3</button>
+				<button class="button b4" value="4">4</button>
+				<button class="button b5" value="5">5</button>
+				<button class="button b6" value="6">6</button>
+				<button class="button b7" value="7">7</button>
+				<button class="button b8" value="8">8</button>
+				<button class="button b9" value="9">9</button>
+				<button class="resetGame" onclick="reSet()" data-action="again">reset<i
+						class="fa-sharp fa-solid fa-arrow-rotate-left"></i></button>
+				<button class="finish" onclick="checkResult()" data-action=''>Finish</button>
+				<button class="newGame" onclick="newGame()" data-action=''>New game</button>
+			</div>
+
+
+
+		</div>
+	</div>
+<!-- java script files -->
+	<script src='signUp.js'></script> <!-- script for sign up page-->
+	<script src='gen_script.js'></script><!-- script for generating new sudoku grid arrays-->
+	<script src='finalCheck.js'></script><!--script for checking up result of game. Conteins 3 types of check up 
+	vertical, horizontal and 3x3 zone-->
+	<script src='script.js'></script>
+	<!-- <script src="https://kit.fontawesome.com/5c3ab7add2.js" crossorigin="anonymous"></script> -->
+</body>
+
+</html>
